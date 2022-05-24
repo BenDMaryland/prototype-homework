@@ -1,9 +1,9 @@
 
  const arr = [1, 2, 3,2];
 
-Array.prototype.MyReduce = function (callbackFn) {
+Array.prototype.MyReduce = function (callbackFn, initialValue=0) {
     console.log("my reduce")
-    let result  =0
+    let result = initialValue
     for (let i = 0; i < this.length; i++) {
         result = callbackFn(result,this[i], i, this)
 console.log("results",result)
@@ -16,7 +16,7 @@ console.log("results",result)
 let myReduceRes = arr.MyReduce((currentItem, previtem, index, array) => {
  //   console.log('currentItem', currentItem, "currentItem", previtem, "idex:", index, "array:", array)
     return currentItem + previtem;
-})
+},2)
 console.log(myReduceRes);
 
 
